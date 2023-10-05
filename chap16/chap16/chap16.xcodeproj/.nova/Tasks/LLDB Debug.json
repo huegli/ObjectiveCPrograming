@@ -1,0 +1,21 @@
+{
+  "actions" : {
+    "build" : {
+      "postActions" : [
+        {
+          "script" : "clang -fobjc-arc chap16\/main.m",
+          "type" : "runScript"
+        }
+      ]
+    }
+  },
+  "extension" : {
+    "identifier" : "panic.Icarus",
+    "name" : "Icarus"
+  },
+  "extensionTemplate" : "lldbDebug",
+  "extensionValues" : {
+    "launchPath" : "a.out",
+    "request" : "attach"
+  }
+}

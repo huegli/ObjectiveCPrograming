@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:chap17/chap17.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:grocery/grocery.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:names/names.xcodeproj">
+   </FileRef>
+</Workspace>

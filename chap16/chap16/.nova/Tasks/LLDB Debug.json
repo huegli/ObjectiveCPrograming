@@ -1,0 +1,21 @@
+{
+  "actions" : {
+    "build" : {
+      "postActions" : [
+        {
+          "script" : "clang -fobjc-arc -g chap16\/main.m",
+          "type" : "runScript"
+        }
+      ]
+    }
+  },
+  "extension" : {
+    "identifier" : "panic.Icarus",
+    "name" : "Icarus"
+  },
+  "extensionTemplate" : "lldbDebug",
+  "extensionValues" : {
+    "launchPath" : "\/Users\/nikolai\/Personal\/code\/ObjectiveCPrograming\/chap16\/chap16\/a.out",
+    "stopAtEntry" : false
+  }
+}
