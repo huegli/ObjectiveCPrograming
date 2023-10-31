@@ -51,6 +51,26 @@ NSArray *BNRMethodsForClass(Class cls) {
     return methodArray;
 }
 
+NSArray *BNRIvarForClass(Class cls) {
+    unsigned int ivarCount = 0;
+    
+    Ivar *ivarList = class_copyIvarList(cls, &ivarCount);
+    
+    NSMutableArray *ivarArray = [NSMutableArray array];
+    
+    for (int i = 0; i < ivarCount; i++) {
+        // Get the current Instance Variable
+        Ivar currentIvar = ivarList[i];
+        // Get the selector for the current Instance Variable
+        SEL ivarSelector = ivar_getName(currentIvar);
+        // Add its string representation to the array
+        [ivarArray addObject:NSStringFromSelector(ivarSelector)];
+    }
+    
+    return ivarArray;
+}
+
+
 @interface BNRObserver : NSObject
 @end
 
@@ -102,9 +122,12 @@ int main(int argc, const char * argv[]) {
             
             NSArray *methods = BNRMethodsForClass(currentClass);
             
-            NSDictionary *classInfoDict = @{    @"classname" : className,
-                                                @"hierarchy" : hierarchy,
-                                                @"methods"   : methods};
+            NSArray *iVars = BNRIvarForClass(currentClass);
+            
+            NSDictionary *classInfoDict = @{    @"classname"    : className,
+                                                @"hierarchy"    : hierarchy,
+                                                @"methods"      : methods,
+                                                @"InstanceVars" : iVars};
             
             [runtimeClassInfo addObject:classInfoDict];
         }
